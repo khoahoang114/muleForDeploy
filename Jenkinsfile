@@ -1,8 +1,8 @@
 pipeline {
   agent {label "linux"}
   tools {
-        maven 'Maven 3.8.1'
-        jdk 'jdk8'
+        maven 'maven3.8.1'
+        jdk 'jdk1.8'
     }
   stages{
     stage('hello') {
