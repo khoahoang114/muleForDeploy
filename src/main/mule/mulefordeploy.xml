@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="af571224-a16e-4177-93fa-17c62b791755" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mulefordeployFlow" doc:id="60ae6db4-c996-4d21-afdc-90394d947d54" >
+		<http:listener doc:name="GET /mule4Deploy" doc:id="f6c4633b-0145-43b6-ab43-8827ccc4a717" path="/mule4Deploy" config-ref="HTTP_Listener_config"/>
+		<logger level="INFO" doc:name="Logger" doc:id="e0d86497-6ee6-4ac4-844a-f619994388ee" message="/mule4Deploy RUN HERE"/>
+		<set-payload value="SUCCESS /mule4Deploy!" doc:name="Set Payload" doc:id="027aea58-1c80-41ea-be53-eaabb48df96b" />
+	</flow>
+</mule>
