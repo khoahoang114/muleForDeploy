@@ -11,7 +11,7 @@ pipeline {
         branch 'develop'
       }
       steps {
-        echo 'deploy UAT'
+        sh 'mvn clean deploy -DmuleDeploy -DskipTests -Dmule.version=4.4.0 -Danypoint.username=khoamule8 -Danypoint.password=123456Aaq -Denv=Sandbox -Dbusiness=Tiki -DvCore=Micro -Dworkers=1'
       }
     }
     stage('for the branch main'){
