@@ -19,7 +19,7 @@ pipeline {
         branch 'main'
       }
       steps {
-        sh 'mvn clean deploy -DmuleDeploy -DskipTests -Dmule.version=4.4.0 -Danypoint.username=khoamule8 -Danypoint.password=123456Aaq -Denv=Sandbox -Dappname=myfirstproject123456789 -Dbusiness=Tiki -DvCore=Micro -Dworkers=1'
+        sh 'mvn clean deploy -DmuleDeploy -DskipTests -Dmule.version=4.4.0 -Danypoint.username=khoamule7 -Danypoint.password=123456Aa@ -Denv=Sandbox -Dbusiness=Tiki -DvCore=Micro -Dworkers=1'
       }
     }
   }
