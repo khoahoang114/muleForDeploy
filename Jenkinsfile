@@ -6,16 +6,30 @@ pipeline {
         echo 'hello from Jenkinsfile'
       }
     }
-    stage('for the branch develop'){
-      when{
+    stage('BUILD: prepare environment'){ 
+      when {
+        anyOf { branch 'develop'; branch 'mmain' }
+      }
+      steps {
+        echo 'prepare Maven, Java JDK'
+        sh 'export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'
+        sh 'export MAVEN_HOME=/Users/khoahoang/apache-maven-3.8.1'
+        sh 'export PATH=$PATH:$MAVEN_HOME/bin'
+        echo 'Environment: '
+        sh 'mvn --version'
+        sh 'java -version'
+      }
+    }
+    stage('DEPLOY: develop'){
+      when {
         branch 'develop'
       }
       steps {
         echo 'deploy UAT'
       }
     }
-    stage('for the branch main'){
-      when{
+    stage('DEPLOY: main'){
+      when {
         branch 'main'
       }
       steps {
