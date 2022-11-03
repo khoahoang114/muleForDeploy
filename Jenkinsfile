@@ -18,8 +18,10 @@ pipeline {
                 export PATH=$PATH:$MAVEN_HOME/bin
                 '''
         echo 'Environment: '
-        'mvn --version'
-        'java -version'
+        sh '''#!/bin/bash
+              mvn --version
+              java -version
+          '''
       }
     }
     stage('DEPLOY: develop'){
