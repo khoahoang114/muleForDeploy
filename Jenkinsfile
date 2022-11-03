@@ -12,9 +12,11 @@ pipeline {
       }
       steps {
         echo 'prepare Maven, Java JDK'
-        'export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home'
-        'export MAVEN_HOME=/Users/khoahoang/apache-maven-3.8.1'
-        'export PATH=$PATH:$MAVEN_HOME/bin'
+        sh '''#!/bin/bash
+                export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+                export MAVEN_HOME=/Users/khoahoang/apache-maven-3.8.1
+                export PATH=$PATH:$MAVEN_HOME/bin
+                '''
         echo 'Environment: '
         'mvn --version'
         'java -version'
