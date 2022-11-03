@@ -8,7 +8,7 @@ pipeline {
     }
     stage('BUILD: prepare environment'){ 
       when {
-        anyOf { branch 'develop'; branch 'mmain' }
+        anyOf { branch 'develop'; branch 'main' }
       }
       steps {
         echo 'prepare Maven, Java JDK'
