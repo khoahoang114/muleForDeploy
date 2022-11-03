@@ -12,16 +12,16 @@ pipeline {
       }
       steps {
         echo 'prepare Maven, Java JDK'
-        sh '''#!/bin/bash
+        sh  """
                 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
                 export MAVEN_HOME=/Users/khoahoang/apache-maven-3.8.1
                 export PATH=$PATH:$MAVEN_HOME/bin
-                '''
+            """
         echo 'Environment: '
-        sh '''#!/bin/bash
+        sh  """
               mvn --version
               java -version
-          '''
+            """
       }
     }
     stage('DEPLOY: develop'){
