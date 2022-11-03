@@ -1,5 +1,9 @@
 pipeline {
   agent {label "linux"}
+  tools {
+        maven 'Maven 3.8.1'
+        jdk 'jdk8'
+    }
   stages{
     stage('hello') {
       steps {
@@ -12,12 +16,6 @@ pipeline {
       }
       steps {
         echo 'prepare Maven, Java JDK'
-        sh  """
-                export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-                export MAVEN_HOME=/Users/khoahoang/apache-maven-3.8.1
-                export PATH=$PATH:$MAVEN_HOME/bin
-            """
-        echo 'Environment: '
         sh  """
               mvn --version
               java -version
